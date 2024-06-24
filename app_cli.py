@@ -36,7 +36,6 @@ if __name__ == "__main__":
     argv = sys.argv
 
     banner()
-    quit()
     path = get_or_set_path()
 
     youtuber = Youtuber()
