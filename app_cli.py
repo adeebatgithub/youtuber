@@ -8,14 +8,12 @@ def banner():
     print("\t\t\tYOUTUBER")
     print("="*56)
 
-def get_or_set_path():
-    if not os.path.exists("dpath.py"):
-        path = input("[+] path to download: ")
-        content = f'download_path = "{path}"'
-        with open("dpath.py", "w") as file:
-            file.write(content)
-    import dpath
-    return dpath.download_path
+def get_path():
+    if platform.system() == "Linux":
+        return "~/youtuber/"
+
+    if platform.system() == "Windows":
+        return "/downloads/"
 
 def get_res_or_error(tags, res):
     try:
@@ -36,7 +34,7 @@ if __name__ == "__main__":
     argv = sys.argv
 
     banner()
-    path = get_or_set_path()
+    path = get_path()
 
     youtuber = Youtuber()
     youtuber.path = path
